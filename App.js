@@ -6,7 +6,7 @@ const path = require("path");
 
 const app=express()
 
-const sendMail = require('./Sendmail'); // Make sure the path is correct
+const sendMail = require("./Sendmail"); // Make sure the path is correct
 
 
 

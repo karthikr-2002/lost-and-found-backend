@@ -9,7 +9,7 @@ const sendMail = async (toEmail, subject, message) => {
         to: toEmail,
         from: process.env.FROM_EMAIL,
         subject: subject,
-        text: message,
+    text: `Phone: ${message.phno}, Email: ${message.emailid}`,
         html: `
                         <div style="font-family: Arial, sans-serif; background-color: #f9f9f9; padding: 30px;">
                 <div style="max-width: 600px; margin: auto; background-color: #ffffff; border-radius: 10px; padding: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
@@ -34,7 +34,12 @@ const sendMail = async (toEmail, subject, message) => {
                     </p>
                 </div>
             </div>
-        `
+        `,
+         headers: {
+        'X-Priority': '1',           // Highest priority
+        'X-MSMail-Priority': 'High',
+        'Importance': 'high'
+    }
     };
 
     try {
